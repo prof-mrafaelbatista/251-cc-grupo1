@@ -1,2 +1,7 @@
 # 251-cc-grupo1
-aaaaaa
+Grupo:
+- Allan Lucas
+- Felipe Duarte
+- Fernando Silva
+- Frankk Antonio
+  
