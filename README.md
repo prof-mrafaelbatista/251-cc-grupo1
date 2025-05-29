@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-# 251-cc-grupo1
+# projeto_final_ip_cc
 Grupo
 - Allan lucas
 - Felipe Duarte
