@@ -7,6 +7,13 @@ from google import genai
 app = Flask(__name__)
 MODEL = "gemini-2.0-flash"
 
+EQUIPE = [
+{"nome": "Felipe Duarte","link_github":"https://github.com/FelipeDoart","link_linkedin":"https://www.linkedin.com/in/felip-duart-483481368/"},
+{"nome": "Frankk Antonio","link_github":"https://github.com/FrankkAntonio","link_linkedin":"https://www.linkedin.com/in/frankk-antonio-37526725b/"},
+{"nome": "Allan Lucas","link_github":"https://github.com/LukazAllan","link_linkedin":"https://www.linkedin.com/in/allan-ribeiro-8ba407365/"},
+{"nome": "Fernando Silva","link_github":"https://github.com/fernandosllnetto","link_linkedin":"https://www.linkedin.com/in/fernando-neto-86a47527a/"}
+]
+
 # Configuração da API do Google GenAI
 if exists('minha_chave.key'):
     with open('minha_chave.key', 'r') as file:
@@ -34,7 +41,7 @@ def ola():
 
 @app.route('/sobre')
 def sobre():
-    return render_template('sobre.html')
+    return render_template('sobre.html', equipe=EQUIPE)
 
 @app.route('/glossario')
 def glossario():
@@ -66,18 +73,20 @@ def criar_termo():
 
     return redirect(url_for('glossario'))
 
-@app.route('/gerar_conteudo', methods=['GET', 'POST'])
-def gerar_conteudo():
+@app.route('/gemini', methods=['GET', 'POST'])
+def gemini():
     if request.method == 'POST':
-        print(request.form)
-        question = request.form['conteudo'].replace('\n', ' ').replace('+', " ")
-        print(question)
-        resposta  = request.form + "<br>" + question
+        # print(request.form)
+        question = request.form['conteudo']
+        # print(question)
+        resposta  = request.form['conteudo']
         #resposta  = request_gemini(question)
-        return render_template('gerar_conteudo.html', resposta=resposta, question=question)
+        return render_template('gemini.html', resposta=resposta, question=question)
 
-    return render_template('gerar_conteudo.html')
+    return render_template('gemini.html')
 
-app.run()
+if __name__ == "__main__":
+    # Ensure debug mode is only enabled during development
+    app.run(debug=False)  # Set to True only during development
 
 
