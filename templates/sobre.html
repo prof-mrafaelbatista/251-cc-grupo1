@@ -1,43 +1,65 @@
 {% extends  "modelo.html" %}
-
-{% block styles %}
-  <link rel="stylesheet" href="static/css/sobre.css">
-{% endblock %}
-
 {% block conteudo %}
+ <!-- lista de companheiro -->
+  <h1> Introdução da Equipe... </h1>
 
-
-<!-- Lista de Colaboradores -->
-
-<div id="conteudo" class="container-xl">
-  <h1> Colaboradores do Projeto</h1>
-  <div style="display: flex; justify-content: flex-start">
-
-    {% for colaborador in equipe %}
+<!-- Lista: Felipe  -->
+<div class="container-xl" style="display: flex; justify-content: flex-start">
     <div class="card" style="width: 18rem;">
-      <img src="static/imagens/{{ colaborador.nome }}.jpeg" class="card-img-top" alt="{{ colaborador.nome }}">
-      <div class="card-body">
-        <h5 class="card-title">➢ {{ colaborador.nome }} </h5>
-        <p class="card-text">Links/Contatos:</p>
-        <ul>
-          <li>
-            <a href="{{ colaborador.link_github }}" class="btn btn-primary">
-              <img src="static/imagens/github.png" alt="GitHub"><span>GitHub</span>
-            </a>
-          </li>
-          <li>
-            <a href="{{ colaborador.link_linkedin }}" class="btn btn-primary">
-              <img src="static/imagens/linkedin.png" alt="Linkedin"><span>Linkedin</span>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-    {% endfor %}
+  <img src="static/imagens/Felipe.jpeg" class="card-img-top" alt="Felipe Duarte">
+  <div class="card-body">
+    <h5 class="card-title">➢ FELIPE DUARTE </h5>
+     <p class="card-text">Links/Contatos:</p>
+    <ul>
+      <li><a href="https://github.com/FelipeDoart" class="btn btn-primary">😸GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/felip-duart-483481368/" class="btn btn-primary">LINKEDIN</a></li>
+    </ul>
 
   </div>
-
 </div>
+  
+  <!-- Frankk -->
+<div class="card" style="width: 18rem;">
+  <img src="static/imagens/Frankk.jpeg" class="card-img-top" alt="Frankk Antonio">
+  <div class="card-body">
+    <h5 class="card-title">➢ FRANKK ANTONIO </h5>
+    <p class="card-text">Links/Contatos:</p>
+    <ul style="none">
+      <li><a href="https://github.com/FrankkAntonio" class="btn btn-primary">😸GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/frankk-antonio-37526725b/" class="btn btn-primary">Linkdin</a></li>
+    </ul>
+  </div>
+</div>
+
+  <!-- Allan -->
+<div class="card" style="width: 18rem;">
+  <img src="static/imagens/Allan.jpeg" class="card-img-top" alt="Allan_Lucas">
+  <div class="card-body">
+    <h5 class="card-title">➢ ALLAN LUCAS </h5>
+    <p class="card-text">Links/Contatos:</p>
+    <ul style="none">
+      <li><a href="https://www.linkedin.com/in/frankk-antonio-37526725b/" class="btn btn-primary">LINKEDIN</a></li>
+      <li><a href="https://www.linkedin.com/in/frankk-antonio-37526725b/" class="btn btn-primary"></a></li>
+      <li><a href="https://www.linkedin.com/in/frankk-antonio-37526725b/" class="btn btn-primary"></a></li>
+    </ul>
+  </div>
+</div>
+
+  <!-- Fernando -->
+<div class="card" style="width: 18rem;">
+  <img src="static/imagens/Fernando.jpeg" class="card-img-top" alt="Fernando_Silva">
+  <div class="card-body">
+    <h5 class="card-title">➢ FERNANDO SILVA </h5>
+    <p class="card-text">Links/Contatos:</p>
+    <ul style="none">
+      <li><a href="https://github.com/fernandosllnetto" class="btn btn-primary">😸GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/fernando-neto-86a47527a/" class="btn btn-primary">Linkedin</a></li>
+    </ul>
+
+  </div>
+</div>
+</div>
+
 
 
 
