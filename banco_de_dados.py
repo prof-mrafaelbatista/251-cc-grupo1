@@ -47,11 +47,9 @@ class Handler:
 
 
     def atualizar_termo(self, index, termo, definicao):
-        with open(self.banco_de_dados, 'r', newline='', encoding='utf-8') as csvfile:
-            reader = list(csv.reader(csvfile, quotechar='"', delimiter=','))
-            if 0 <= index < len(reader):
-                reader[index] = [termo, definicao]
+        if 0 <= index < len(self.bd_termos):
+            self.bd_termos[index] = [termo, definicao]
+        else:
+            raise IndexError("Índice fora do intervalo da lista de termos.")
         
-        with open(self.banco_de_dados, 'w', newline='', encoding='utf-8') as csvfile:
-            writer = csv.writer(csvfile, quotechar='"', delimiter=',', quoting=csv.QUOTE_ALL)
-            writer.writerows(reader)
+        self.escrever_bd()
