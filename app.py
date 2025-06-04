@@ -6,7 +6,9 @@ from google import genai
 
 app = Flask(__name__)
 MODEL = "gemini-2.0-flash"
+BANCO_DE_DADOS = 'bd_glossario.csv'
 
+# Variável Constante que guarda os membros do nosso grupo
 EQUIPE = [
 {"nome": "Felipe Duarte","link_github":"https://github.com/FelipeDoart","link_linkedin":"https://www.linkedin.com/in/felip-duart-483481368/"},
 {"nome": "Frankk Antonio","link_github":"https://github.com/FrankkAntonio","link_linkedin":"https://www.linkedin.com/in/frankk-antonio-37526725b/"},
@@ -47,8 +49,8 @@ def sobre():
 def glossario():
     #Abertura do arquivo Glossario.csv
     glossario_termos = []
-    with open('bd_glossario.csv', newline='' , encoding='utf-8') as csvfile:
-        reader = csv.reader(csvfile, delimiter =';')
+    with open(BANCO_DE_DADOS, newline='' , encoding='utf-8') as csvfile:
+        reader = csv.reader(csvfile, quotechar='"', delimiter=',')
 
         #Criação de uma lista dos termos adicionando os termos
         for l in reader:
@@ -67,8 +69,8 @@ def criar_termo():
     termo = request.form['termo']
     definicao = request.form['definicao']
 
-    with open('bd_glossario.csv', 'a', newline='', encoding='utf-8') as csvfile:
-        writer = csv.writer(csvfile, delimiter=';')
+    with open(BANCO_DE_DADOS, 'a', newline='', encoding='utf-8') as csvfile:
+        writer = csv.writer(csvfile, quotechar='"', delimiter=',', quoting=csv.QUOTE_ALL)
         writer.writerow([termo, definicao])
 
     return redirect(url_for('glossario'))
