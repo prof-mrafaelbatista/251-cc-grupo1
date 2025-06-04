@@ -1,0 +1,43 @@
+{% extends "modelo.html" %}
+{% block conteudo %}
+<h1>Glossário</h1>
+
+<table class="table table-striped table-responsive table-bordered">
+    <thead class="thead-default">
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Termo</th>
+        <th scope="col">Definição</th>
+        <th colspan="2">Ação</th>
+    </tr>
+    </thead>
+    <tbody>
+        {% for termo in glossario %}
+        <tr>
+            <th scope="row">{{ loop.index }}</th>
+            <td>{{ termo[0] }}</td>
+            <td>{{ termo[1] }}</td>
+            <td>
+                <form action="/editar_termo" method="post">
+                    <input type="text" class="form-control" id="index" name="index" value="{{ loop.index - 1 }}" style="display: none;">
+                    <button type="submit" class="btn btn-warning">Alterar</button>
+                </form>
+            </td>
+            <td>
+                <form action="/remove_termo" method="post">
+                    <input type="text" class="form-control" id="index" name="index" value="{{ loop.index - 1 }}" style="display: none;">
+                    <button type="submit" class="btn btn-danger">Apagar</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% if alert %}
+<script>
+    window.alert('{{alert}}');
+</script>
+{% endif %}
+
+{% endblock %}
