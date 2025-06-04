@@ -1,0 +1,69 @@
+* {
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+}
+
+#titulo {
+    display: flex;
+    justify-content: flex-start;
+}
+#python {
+    position: relative;
+    width: 100px
+}
+h1 {
+    font-family: Arial;
+    font-style: italic;
+    position: relative;
+    top: 25px;
+
+}
+
+/* Conceito */
+#titulo_conceito {
+    background-color: lightslategray;
+}
+#conceito {
+   border: 1px solid black;
+    width: 600px;
+    margin-left: 10px;
+}
+#tx_conceito {
+    font-family: Arial;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* Conceitos Básicos */
+#list_conceit{
+    position: relative;
+    top: 20px;
+}
+.list_basic {
+    width: 725px;
+    list-style: none;
+    border: 1px solid black;
+    margin-bottom: 15px;
+}
+.title_basic {
+    background: cadetblue;
+}
+h3 {
+    margin-top: 20px;
+    margin-left: 35px;
+}
+
+.list_text {
+    padding-left: 8px;
+    padding-right: 8px;
+}
+.concs{
+    font-style: italic;
+    font-family: "Arial Black";
+    padding-left: 5px;
+}
+
+#spaco {
+    height: 150px;
+}

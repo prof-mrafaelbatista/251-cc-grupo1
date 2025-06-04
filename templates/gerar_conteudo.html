@@ -2,8 +2,8 @@
 
 {% block conteudo %}
 <div class="container">
-    <h1>Gerar Conteúdo</h1>
-    <form method="post" action="/gemini">
+    <h1>Pergunte ao Gemini</h1>
+    <form method="post" action="/gerar_conteudo">
         <div class="mb-3">
             <label for="conteudo" class="form-label">Pergunta</label>
             <textarea class="form-control" id="conteudo" name="conteudo" rows="5" required></textarea>
@@ -15,11 +15,11 @@
         {% if resposta %}
             <h2>Resposta Gerada</h2>
             <div class="alert alert-success" role="alert">
-                <code>{{ resposta }}</code>
+                {{ resposta }}
             </div>
         {% elif erro %}
             <div class="alert alert-danger" role="alert">
-                <code>{{ erro }}</code>
+                {{ erro }}
             </div>
         {% endif %}
     </div>
