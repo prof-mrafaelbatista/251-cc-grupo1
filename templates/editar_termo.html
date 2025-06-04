@@ -1,0 +1,29 @@
+{% extends "modelo.html" %}
+{% block conteudo %}
+
+<h1>Adicionar Termo</h1>
+
+<form action="{{ url_for('alterar_termo')}}" method="post">
+<div class="mb-3">
+    <label for="index" class="form-label">Index: {{index}}</label>
+    <input class="form-control" id="index" name="index" aria-describedby="index" style="display: none;">
+</div>
+<div class="mb-3">
+    <label for="termo" class="form-label">Termo</label>
+    <input class="form-control" id="termo" name="termo" aria-describedby="termo">
+</div>
+<div class="mb-3">
+    <label for="definicao" class="form-label">Definição</label>
+    <input class="form-control" id="descricao" name="descricao" aria-describedby="desc">
+</div>
+    <button type="submit" class="btn btn-primary">Enviar</button>
+</form>
+
+<script>
+    window.document.getElementById('termo').value = "{{termo}}";
+    window.document.getElementById('descricao').value = "{{descricao}}";
+    window.document.getElementById('index').value = "{{index}}";
+    
+</script>
+
+{% endblock %}

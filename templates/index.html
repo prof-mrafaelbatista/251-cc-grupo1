@@ -1,7 +1,228 @@
 {% extends  "modelo.html" %}
+{% block styles %}
+  <link rel="stylesheet" href="static/css/style.css">
+{% endblock %}
+
 {% block conteudo %}
+<div id="titulo">
+    <img id="python" src="static/imagens/python.png" alt="Icone do python" style="">
+    <h1> Suporte de Fundamentos em Python</h1>
+</div>
+    <!-- Conceito -->
+<div id="conceito">
+    <div id="titulo_conceito">
+        <h2> ▸ Conceito </h2>
+    </div>
+    <p id="tx_conceito">Python é uma linguagem de programação interpretada, de alto nível e orientada a objetos, com uma sintaxe simples e fácil de ler. É amplamente utilizada em diversas áreas, como desenvolvimento web, ciência de dados, machine learning, automação e computação científica. </p>
+</div>
 
-    <h1> Suporte de Fundamentos em Python </h1>
+    <!-- Conceitos Básicos -->
+    <h3> Principais Conceitos </h3>
+        <div>
+            <ul id="list_conceit">
 
+                <li class="list_basic">
+                    <div>
+                        <div class="title_basic">
+                            <p class="concs"> • Variaveis </p>
+                        </div>
+                        <p class="list_text"> Variáveis são usadas para armazenar informações a serem referenciadas e manipuladas em um programa de computador. Elas também fornecem uma maneira de rotular dados com um nome descritivo, para que nossos programas possam ser entendidos mais claramente pelo leitor e por nós mesmos. É útil pensar nas variáveis como contêineres que contêm informações. Seu único objetivo é rotular e armazenar dados na memória. Esses dados podem ser usados em todo o seu programa.</p>
+                    </div>
+                </li>
+
+                <li class="list_basic">
+                    <div>
+                        <div class="title_basic">
+                            <p class="concs"> • Operadores </p>
+                        </div>
+                        <p class="list_text">Os operadores são símbolos que representam operações matemáticas, lógicas e outras ações. Eles são essenciais para construir expressões que manipulam dados e controlam a execução do código.</p>
+                    </div>
+                </li>
+
+                <li class="list_basic">
+                    <div>
+                        <div class="title_basic">
+                            <p class="concs"> • Estruturas de seleção</p>
+                        </div>
+                        <p class="list_text"> São comandos que permitem executar diferentes blocos de código com base em condições.</p>
+                        <pre>
+                            <code>
+```python
+# if, elif, else - estrutura básica
+idade = 18
+
+if idade < 12:
+    print("Criança")
+elif idade < 18:
+    print("Adolescente")
+else:
+    print("Adulto")
+
+# Operador ternário
+status = "Aprovado" if nota >= 6 else "Reprovado"
+```
+                            </code>
+                        </pre>
+                    </div>
+                </li>
+
+                <li class="list_basic">
+                    <div>
+                        <div class="title_basic">
+                            <p class="concs"> • Estruturas de repetição </p>
+                        </div>
+                        <p class="list_text"> Permitem executar um bloco de código múltiplas vezes.</p>
+                        <pre>
+                            <code>
+```python
+# for - para iterar sobre sequências
+for i in range(5):  # 0 a 4
+    print(i)
+
+frutas = ['maçã', 'banana', 'laranja']
+for fruta in frutas:
+    print(fruta)
+
+# while - repete enquanto condição for verdadeira
+contador = 0
+while contador < 5:
+    print(contador)
+    contador += 1
+
+# break e continue
+for num in range(10):
+    if num == 3:
+        continue  # pula para próxima iteração
+    if num == 8:
+        break     # interrompe o loop
+    print(num)
+```
+                            </code>
+                        </pre>
+                    </div>
+                </li>
+
+                <li class="list_basic">
+                    <div>
+                        <div class="title_basic">
+                            <p class="concs"> • Vetores e matrizes </p>
+                        </div>
+                        <p class="list_text"> Em Python, usamos listas para vetores e listas de listas para matrizes.</p>
+                        <pre>
+                            <code>
+```python
+# Vetor (lista)
+vetor = [1, 2, 3, 4, 5]
+print(vetor[0])  # Acesso ao primeiro elemento (índice 0)
+
+# Matriz (lista de listas)
+matriz = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
+print(matriz[1][2])  # Acessa linha 1, coluna 2 (valor 6)
+
+# Usando NumPy para arrays/matrizes mais eficientes (biblioteca externa)
+import numpy as np
+array = np.array([1, 2, 3])
+matriz_np = np.array([[1, 2], [3, 4]])
+```
+                            </code>
+                        </pre>
+                    </div>
+                </li>
+
+                <li class="list_basic">
+                    <div>
+                        <div class="title_basic">
+                            <p class="concs"> • Orientação a Objeto </p>
+                        </div>
+                        <p class="list_text"> Orientação a objetos (OO) é um paradigma de programação que organiza o código em torno de objetos, que são representações de entidades do mundo real ou abstratas, que possuem características (atributos) e comportamentos (métodos).</p>
+                    </div>
+                </li>
+
+                <li class="list_basic">
+                    <div>
+                        <div class="title_basic">
+                            <p class="concs"> • Funções </p>
+                        </div>
+                        <p class="list_text"> Uma função é um bloco de código reutilizável que realiza uma tarefa específica. Ela pode receber entradas (parâmetros), processar dados e retornar uma saída.</p>
+                        <pre>
+                            <code>
+```python
+# Função com retorno
+def soma(a, b):
+    return a + b
+
+resultado = soma(3, 5)
+
+# Procedimento (função sem retorno)
+def saudacao(nome):
+    print(f"Olá, {nome}!")
+
+saudacao("Maria")
+
+# Parâmetros padrão
+def potencia(base, expoente=2):
+    return base ** expoente
+
+print(potencia(3))      # 9
+print(potencia(3, 3))   # 27
+
+# Funções lambda (anônimas)
+quadrado = lambda x: x**2
+print(quadrado(4))  # 16
+```
+                            </code>
+                        </pre>
+                    </div>
+                </li>
+                
+
+                <li class="list_basic">
+                    <div>
+                        <div class="title_basic">
+                            <p class="concs"> • Tratamento de exceção </p>
+                        </div>
+                        <p class="list_text"> Permite lidar com erros e situações excepcionais de forma controlada.</p>
+                        <pre>
+                            <code>
+```python
+# Try-except básico
+try:
+    numero = int(input("Digite um número: "))
+    resultado = 10 / numero
+    print(resultado)
+except ValueError:
+    print("Isso não é um número válido!")
+except ZeroDivisionError:
+    print("Não é possível dividir por zero!")
+except Exception as e:
+    print(f"Ocorreu um erro: {e}")
+else:
+    print("Executado com sucesso!")
+finally:
+    print("Este bloco sempre é executado.")
+
+# Levantando exceções
+def verificar_idade(idade):
+    if idade < 0:
+        raise ValueError("Idade não pode ser negativa")
+    return idade >= 18
+
+try:
+    verificar_idade(-5)
+except ValueError as e:
+    print(e)
+```
+                            </code>
+                        </pre>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+<div id="spaco"></div>
 
 {% endblock %}
