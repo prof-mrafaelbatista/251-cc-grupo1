@@ -110,11 +110,8 @@ def alterar_termo():
 @app.route('/gemini', methods=['GET', 'POST'])
 def gemini():
     if request.method == 'POST':
-        # print(request.form)
         question = request.form['conteudo']
-        # print(question)
-        resposta  = request.form['conteudo']
-        #resposta  = request_gemini(question)
+        resposta  = request_gemini(question)
         return render_template('gemini.html', resposta=resposta, question=question)
 
     return render_template('gemini.html')

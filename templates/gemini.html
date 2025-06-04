@@ -15,11 +15,11 @@
         {% if resposta %}
             <h2>Resposta Gerada</h2>
             <div class="alert alert-success" role="alert">
-                {{ resposta }}
+                <code>{{ resposta }}</code>
             </div>
         {% elif erro %}
             <div class="alert alert-danger" role="alert">
-                {{ erro }}
+                <code>{{ erro }}</code>
             </div>
         {% endif %}
     </div>
