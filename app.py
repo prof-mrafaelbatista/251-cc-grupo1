@@ -3,10 +3,12 @@ from os import write
 from os.path import exists
 from flask import Flask, render_template, request, url_for, redirect
 from google import genai
+import banco_de_dados
 
 app = Flask(__name__)
 MODEL = "gemini-2.0-flash"
 BANCO_DE_DADOS = 'bd_glossario.csv'
+GLOSSARIO = banco_de_dados.Handler(BANCO_DE_DADOS)
 
 # Variável Constante que guarda os membros do nosso grupo
 EQUIPE = [
@@ -47,16 +49,7 @@ def sobre():
 
 @app.route('/glossario')
 def glossario():
-    #Abertura do arquivo Glossario.csv
-    glossario_termos = []
-    with open(BANCO_DE_DADOS, newline='' , encoding='utf-8') as csvfile:
-        reader = csv.reader(csvfile, quotechar='"', delimiter=',')
-
-        #Criação de uma lista dos termos adicionando os termos
-        for l in reader:
-            glossario_termos.append(l)
-
-    return render_template('glossario.html', glossario=glossario_termos)
+    return render_template('glossario.html', glossario=GLOSSARIO.get_termos())
 
 
 @app.route('/novos_termos')
@@ -65,25 +58,21 @@ def novos_termos():
 
 @app.route('/criar_termo', methods=['POST'])
 def criar_termo():
-
     termo = request.form['termo']
     definicao = request.form['definicao']
 
-    with open(BANCO_DE_DADOS, 'a', newline='', encoding='utf-8') as csvfile:
-        writer = csv.writer(csvfile, quotechar='"', delimiter=',', quoting=csv.QUOTE_ALL)
-        writer.writerow([termo, definicao])
+    GLOSSARIO.adicionar_termo(termo, definicao)
 
     return redirect(url_for('glossario'))
 
 @app.route('/remove_termo', methods=["POST"])
 def remove_termo():
-    index = request.form['index']
-    print(f'O index eh esse: {index}')
-    # definicao = request.form['definicao']
-
-    # with open(BANCO_DE_DADOS, 'a', newline='', encoding='utf-8') as csvfile:
-    #     writer = csv.writer(csvfile, quotechar='"', delimiter=',', quoting=csv.QUOTE_ALL)
-    #     writer.writerow([termo, definicao])
+    try:
+        index = int(request.form['index'])
+    except TypeError:
+        raise TypeError("Não foi possível converter a entrada de index para INT base 10")
+    
+    GLOSSARIO.remover_termo(index)
 
     return redirect(url_for('glossario'))
 
