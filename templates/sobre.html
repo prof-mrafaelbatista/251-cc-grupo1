@@ -1,0 +1,44 @@
+{% extends  "modelo.html" %}
+
+{% block styles %}
+  <link rel="stylesheet" href="static/css/sobre.css">
+{% endblock %}
+
+{% block conteudo %}
+
+
+<!-- Lista de Colaboradores -->
+
+<div id="conteudo" class="container-xl">
+  <h1> Colaboradores do Projeto</h1>
+  <div style="display: flex; justify-content: flex-start">
+
+    {% for colaborador in equipe %}
+    <div class="card" style="width: 18rem;">
+      <img src="static/imagens/{{ colaborador.nome }}.jpeg" class="card-img-top" alt="{{ colaborador.nome }}">
+      <div class="card-body">
+        <h5 class="card-title">➢ {{ colaborador.nome }} </h5>
+        <p class="card-text">Links/Contatos:</p>
+        <ul>
+          <li>
+            <a href="{{ colaborador.link_github }}" class="btn btn-primary">
+              <img src="static/imagens/github.png" alt="GitHub"><span>GitHub</span>
+            </a>
+          </li>
+          <li>
+            <a href="{{ colaborador.link_linkedin }}" class="btn btn-primary">
+              <img src="static/imagens/linkedin.png" alt="Linkedin"><span>Linkedin</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    {% endfor %}
+
+  </div>
+
+</div>
+
+
+
+{% endblock %}

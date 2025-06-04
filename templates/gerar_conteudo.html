@@ -1,0 +1,42 @@
+{% extends "modelo.html" %}
+
+{% block conteudo %}
+<div class="container">
+    <h1>Pergunte ao Gemini</h1>
+    <form method="post" action="/gerar_conteudo">
+        <div class="mb-3">
+            <label for="conteudo" class="form-label">Pergunta</label>
+            <textarea class="form-control" id="conteudo" name="conteudo" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Gerar</button>
+    </form>
+
+    <div id="resposta" class="mt-4">
+        {% if resposta %}
+            <h2>Resposta Gerada</h2>
+            <div class="alert alert-success" role="alert">
+                {{ resposta }}
+            </div>
+        {% elif erro %}
+            <div class="alert alert-danger" role="alert">
+                {{ erro }}
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+
+
+
+{% block scripts %}
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const respostaDiv = document.getElementById("resposta");
+        if (respostaDiv.innerHTML.trim() === "") {
+            respostaDiv.style.display = "none";
+        } else {
+            respostaDiv.style.display = "block";
+        }
+    });
+</script>
+{% endblock %}
