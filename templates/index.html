@@ -1,17 +1,62 @@
 {% extends  "modelo.html" %}
+{% block styles %}
+  <link rel="stylesheet" href="static/css/style.css">
+{% endblock %}
+
 {% block conteudo %}
-<div>
-    <img src="static/imagens/python.png" alt="Icone do python" style="width: 100px">
+<div id="titulo">
+    <img id="python" src="static/imagens/python.png" alt="Icone do python" style="">
     <h1> Suporte de Fundamentos em Python</h1>
 </div>
     <!-- Conceito -->
-<div style="border: 1px solid black">
-    <h2> ✩ Conceito </h2>
-    <div style="width: 525px">
-        <p>Python é uma linguagem de programação interpretada, de alto nível e orientada a objetos, com uma sintaxe simples e fácil de ler. É amplamente utilizada em diversas áreas, como desenvolvimento web, ciência de dados, machine learning, automação e computação científica. </p>
+<div id="conceito">
+    <div id="titulo_conceito">
+        <h2> ▸ Conceito </h2>
     </div>
+    <p id="tx_conceito">Python é uma linguagem de programação interpretada, de alto nível e orientada a objetos, com uma sintaxe simples e fácil de ler. É amplamente utilizada em diversas áreas, como desenvolvimento web, ciência de dados, machine learning, automação e computação científica. </p>
 </div>
 
+    <!-- Conceitos Básicos -->
+    <h3> Principais Conceitos </h3>
+        <div>
+            <ul id="list_conceit">
 
+            <li class="list_basic">
+                <div>
+                    <div class="title_basic">
+                        <p class="concs"> • Variaveis </p>
+                    </div>
+                    <p class="list_text"> Variáveis são usadas para armazenar informações a serem referenciadas e manipuladas em um programa de computador. Elas também fornecem uma maneira de rotular dados com um nome descritivo, para que nossos programas possam ser entendidos mais claramente pelo leitor e por nós mesmos. É útil pensar nas variáveis como contêineres que contêm informações. Seu único objetivo é rotular e armazenar dados na memória. Esses dados podem ser usados em todo o seu programa.</p>
+                </div>
+            </li>
+
+            <li class="list_basic">
+                <div>
+                    <div class="title_basic">
+                        <p class="concs"> • Operadores </p>
+                    </div>
+                    <p class="list_text">Os operadores são símbolos que representam operações matemáticas, lógicas e outras ações. Eles são essenciais para construir expressões que manipulam dados e controlam a execução do código.</p>
+                </div>
+            </li>
+
+            <li class="list_basic">
+                <div>
+                    <div class="title_basic">
+                        <p class="concs"> • Orientação a Objeto </p>
+                    </div>
+                    <p class="list_text"> Orientação a objetos (OO) é um paradigma de programação que organiza o código em torno de objetos, que são representações de entidades do mundo real ou abstratas, que possuem características (atributos) e comportamentos (métodos).</p>
+                </div>
+            </li>
+
+            <li class="list_basic">
+                <div>
+                    <div class="title_basic">
+                        <p class="concs"> • Funções </p>
+                    </div>
+                    <p class="list_text"> Uma função é um bloco de código reutilizável que realiza uma tarefa específica. Ela pode receber entradas (parâmetros), processar dados e retornar uma saída.</p>
+                </div>
+            </li>
+        </ul>
+        </div>
 
 {% endblock %}
