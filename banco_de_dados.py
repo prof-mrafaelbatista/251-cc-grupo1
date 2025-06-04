@@ -19,6 +19,11 @@ class Handler:
     
     def get_termos(self):
         return self.bd_termos
+    
+    def get_termo(self, index):
+        if 0 <= index < len(self.bd_termos):
+            return self.bd_termos[index]
+        raise IndexError("Índice fora do intervalo da lista de termos.")
         
 
     def atualizar_bd(self):

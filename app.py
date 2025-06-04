@@ -48,7 +48,9 @@ def sobre():
     return render_template('sobre.html', equipe=EQUIPE)
 
 @app.route('/glossario')
-def glossario():
+def glossario(alert=""):
+    if alert != "":
+        return render_template('glossario.html', glossario=GLOSSARIO.get_termos(), alert=alert)
     return render_template('glossario.html', glossario=GLOSSARIO.get_termos())
 
 
@@ -70,11 +72,39 @@ def remove_termo():
     try:
         index = int(request.form['index'])
     except TypeError:
-        raise TypeError("Não foi possível converter a entrada de index para INT base 10")
+        raise TypeError("Não foi possível converter a entra-0da de index para INT base 10")
     
-    GLOSSARIO.remover_termo(index)
+    GLOSSARIO.remover_termo(index) 
 
     return redirect(url_for('glossario'))
+
+@app.route('/editar_termo', methods=["POST"])
+def editar_termo():
+    try:
+        index = int(request.form['index'])
+    except TypeError:
+        raise TypeError("Não foi possível converter a entrada de index para INT base 10")
+    
+    o_termo = GLOSSARIO.get_termo(index)[0]
+    a_descricao = GLOSSARIO.get_termo(index)[1]
+    return render_template('editar_termo.html', termo=o_termo, descricao=a_descricao, index=index)
+
+@app.route('/alterar_termo', methods=["POST"])
+def alterar_termo():
+    o_request = list(request.form.items())
+    if o_request[0][1] == "":
+        return "Index Vazio"
+    try:
+        index = int(o_request[0][1])
+    except TypeError:
+        raise TypeError("Não foi possível converter a entrada de index para INT base 10")
+    
+    termo = o_request[1][1]
+    definicao = o_request[2][1]
+
+    GLOSSARIO.atualizar_termo(index, termo, definicao)
+
+    return glossario("Termo alterado com Sucesso!")
 
 
 @app.route('/gemini', methods=['GET', 'POST'])
