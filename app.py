@@ -75,6 +75,19 @@ def criar_termo():
 
     return redirect(url_for('glossario'))
 
+@app.route('/remove_termo', methods=["POST"])
+def remove_termo():
+    index = request.form['index']
+    print(f'O index eh esse: {index}')
+    # definicao = request.form['definicao']
+
+    # with open(BANCO_DE_DADOS, 'a', newline='', encoding='utf-8') as csvfile:
+    #     writer = csv.writer(csvfile, quotechar='"', delimiter=',', quoting=csv.QUOTE_ALL)
+    #     writer.writerow([termo, definicao])
+
+    return redirect(url_for('glossario'))
+
+
 @app.route('/gemini', methods=['GET', 'POST'])
 def gemini():
     if request.method == 'POST':
